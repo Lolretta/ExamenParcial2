@@ -46,83 +46,34 @@ async function askName() {
     const answers = await inquirer.prompt({
       name: 'question_1',
       type: 'list',
-      message: 'What is my first Last Name?\n',
+      message: 'What is my first First Name?\n',
       choices: [
-        'Reta',
-        'Retta',
-        'Ramirez',
-        'Mondongo ',
+        'Jose',
+        'Ivan',
+        'Juan',
+        'Pedro',
       ],
     });
   
-    return handleAnswer(answers.question_1 === 'Retta');
+    return handleAnswer(answers.question_1 === 'Jose');
   }
 
   async function question_2() {
     const answers = await inquirer.prompt({
       name: 'question_2',
       type: 'list',
-      message: 'What is my favorite animal?',
+      message: 'Favorite food?',
       choices: [
-        'Dogs',
-        'Birds',
-        'Snakes',
-        'Cats'
+        'Tacos',
+        'Meat',
+        'Mondongo',
+        'Pozole'
       ],
     });
   
-    return handleAnswer(answers.question_2 === 'Cats');
+    return handleAnswer(answers.question_2 === 'Mondongo');
   }
   
-  async function question_3() {
-    const answers = await inquirer.prompt({
-      name: 'question_3',
-      type: 'list',
-      message: 'Which is my favorite candy?',
-      choices: [
-        'Ice Cream',
-        'Lollipop',
-        'Caramel',
-        'Chocolate'
-      ],
-    });
-  
-    return handleAnswer(answers.question_3 === 'Chocolate');
-  }
-  
-  async function question_4() {
-    const answers = await inquirer.prompt({
-      name: 'question_4',
-      type: 'list',
-      message: 'Which is my favorite color?',
-      choices: [
-        'Black',
-        'White',
-        'Yellow',
-        'Green',
-      ],
-    });
-  
-    return handleAnswer(answers.question_4 === `Black`);
-  }
-  
-  async function question_5() {
-    const answers = await inquirer.prompt({
-      name: 'question_5',
-      type: 'list',
-      message: 'Which is my favorite anime?',
-      choices: [
-        'Naruto',
-        'One Piece',
-        'Kimetsu no Yaiba',
-        'Koe no Katachi'
-      ],
-    });
-  
-    return handleAnswer(answers.question_5 === 'One Piece');
-  }
-
-
   async function handleAnswer(isCorrect) {
     const spinner = createSpinner('Checking answer...').start();
     await sleep();
@@ -155,7 +106,3 @@ await welcome();
 await askName();
 await question_1();
 await question_2();
-await question_3();
-await question_4();
-await question_5();
-winner();
